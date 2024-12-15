@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>Calculator by Harsh</title>
+  <style>
+    body {
+      background: url(Cal.jpg);
+      background-position: center;
+      background-size: cover;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    input {
+      height: 30px;
+      font-size: 20px;
+      background: none;
+      border: none;
+      outline: none;
+      border-bottom: 2px solid #5a269a;
+      color: white;
+      font-weight: bold;
+    }
+    #ope {
+      background: none;
+      color: white;
+      height: 40px;
+      width: 85px;
+      font-size: 30px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    button {
+      margin-left: 20%;
+      margin-top: 20px;
+      background: none;
+      color: #e6335b;
+      height: 50px;
+      width: 150px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .body {
+      box-shadow: 5px 3px 15px 8px #9a7326;
+      height: 300px;
+    }
+    #second, #first {
+      margin-top: 20px;
+    }
+    #res {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="body">
+    <input type="number" id="first" name="first" step="any">
+    <select id="ope">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+    <input type="number" id="second" name="second" step="any">
+    <button onclick="cal()">Calculate</button>
+    <input type="number" id="res" readonly>
+  </div>
+  <script>
+    function cal() {
+      var ope1 = document.getElementById("first").value;
+      var ope2 = document.getElementById("second").value;
+      var ope = document.getElementById("ope").value;
+
+      var num1 = parseFloat(ope1);
+      var num2 = parseFloat(ope2);
+      var res;
+
+      if (ope === '+') {
+        res = num1 + num2;
+      } else if (ope === '-') {
+        res = num1 - num2;
+      } else if (ope === '*') {
+        res = num1 * num2;
+      } else if (ope === '/') {
+        res = num2 !== 0 ? num1 / num2 : "Error";
+      } else {
+        res = "Invalid Operation";
+      }
+
+      document.getElementById("res").value = res;
+    }
+  </script>
+</body>
+</html>
